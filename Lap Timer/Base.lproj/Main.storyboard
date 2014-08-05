@@ -26,10 +26,12 @@
         <scene sceneID="p1C-D1-rEV">
             <objects>
                 <tableViewController id="2lV-iC-5HB" customClass="ChallengesViewController" customModule="Lap_Timer" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3fg-Ym-biq">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="3fg-Ym-biq">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.090196078430000007" green="0.058823529409999999" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.44313728810000003" green="0.38431376220000002" blue="0.43921571970000001" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.090196078431372548" green="0.058823529411764705" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="2Qz-9L-3jD" style="IBUITableViewCellStyleDefault" id="qaU-K6-o3u">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -39,11 +41,12 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Qz-9L-3jD">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.78823529410000004" green="0.69803921570000005" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.270588249" green="0.18823531269999999" blue="0.26274511220000002" alpha="1" colorSpace="deviceRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
