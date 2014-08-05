@@ -125,7 +125,7 @@ class TimerViewController: UIViewController {
         currentTimeBar.progress = Float(currentTime / maxTime)
         
         if let bestTimeInterval = bestTime?.time {
-            bestTimeLabel.text = formatTimeInterval(bestTimeInterval)
+            bestTimeLabel.text = "\(bestTime!.comment!)   \(formatTimeInterval(bestTimeInterval))"
             bestTimeBar.progress = Float(bestTimeInterval / maxTime)
         } else {
             bestTimeLabel.text = formatTimeInterval(0.0)
@@ -133,7 +133,7 @@ class TimerViewController: UIViewController {
         }
         
         if let worstTimeInterval = worstTime?.time {
-            worstTimeLabel.text = formatTimeInterval(worstTimeInterval)
+            worstTimeLabel.text = "\(worstTime!.comment!)   \(formatTimeInterval(worstTimeInterval))"
             worstTimeBar.progress = Float(worstTimeInterval / maxTime)
         } else {
             worstTimeLabel.text = formatTimeInterval(0.0)
