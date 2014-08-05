@@ -55,6 +55,8 @@ class TimerViewController: UIViewController {
 		} else {
 			navigationItem.title = "Challenge"
 		}
+        
+        updateTimers()
 	}
 
     override func didReceiveMemoryWarning() {
@@ -127,16 +129,25 @@ class TimerViewController: UIViewController {
         if let bestTimeInterval = bestTime?.time {
             bestTimeLabel.text = formatTimeInterval(bestTimeInterval)
             bestTimeBar.progress = Float(bestTimeInterval / maxTime)
+        } else {
+            bestTimeLabel.text = formatTimeInterval(0.0)
+            bestTimeBar.progress = 0.0
         }
         
         if let worstTimeInterval = worstTime?.time {
             worstTimeLabel.text = formatTimeInterval(worstTimeInterval)
             worstTimeBar.progress = Float(worstTimeInterval / maxTime)
+        } else {
+            worstTimeLabel.text = formatTimeInterval(0.0)
+            worstTimeBar.progress = 0.0
         }
         
         if let average = averageTimeInterval {
             averageTimeLabel.text = formatTimeInterval(average)
             averageTimeBar.progress = Float(average / maxTime)
+        } else {
+            averageTimeLabel.text = formatTimeInterval(0.0)
+            averageTimeBar.progress = 0.0
         }
     }
 
