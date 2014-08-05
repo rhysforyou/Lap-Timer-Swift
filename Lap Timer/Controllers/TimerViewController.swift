@@ -184,17 +184,16 @@ class TimerViewController: UIViewController {
         return dateFormatter.stringFromDate(intervalAsDate)
     }
     
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showTimes" {
+            let navigationController = segue.destinationViewController as UINavigationController
+            let timesViewController = navigationController.topViewController as TimesViewController
+            timesViewController.challenge = challenge
+        }
     }
-    */
 
-	@IBAction func unwindToTiemrViewController(segue: UIStoryboardSegue) {
-		
-	}
+	@IBAction func unwindToTiemrViewController(segue: UIStoryboardSegue) {}
 }
