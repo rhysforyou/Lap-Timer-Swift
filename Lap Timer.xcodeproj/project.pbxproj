@@ -12,6 +12,9 @@
 		572EC98E1990ACD300340293 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 572EC98C1990ACD300340293 /* Main.storyboard */; };
 		572EC9901990ACD300340293 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 572EC98F1990ACD300340293 /* Images.xcassets */; };
 		572EC99C1990ACD300340293 /* Lap_TimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572EC99B1990ACD300340293 /* Lap_TimerTests.swift */; };
+		572EC9A71990B1F200340293 /* ChallengeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572EC9A61990B1F200340293 /* ChallengeDataSource.swift */; };
+		572EC9A91990B3F200340293 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572EC9A81990B3F200340293 /* Challenge.swift */; };
+		572EC9AB1990B44700340293 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572EC9AA1990B44700340293 /* Time.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,9 @@
 		572EC9951990ACD300340293 /* Lap TimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lap TimerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		572EC99A1990ACD300340293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		572EC99B1990ACD300340293 /* Lap_TimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lap_TimerTests.swift; sourceTree = "<group>"; };
+		572EC9A61990B1F200340293 /* ChallengeDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeDataSource.swift; sourceTree = "<group>"; };
+		572EC9A81990B3F200340293 /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
+		572EC9AA1990B44700340293 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,7 @@
 		572EC9851990ACD300340293 /* Lap Timer */ = {
 			isa = PBXGroup;
 			children = (
+				572EC9A51990B1AE00340293 /* Models */,
 				572EC9881990ACD300340293 /* AppDelegate.swift */,
 				572EC98A1990ACD300340293 /* ViewController.swift */,
 				572EC98C1990ACD300340293 /* Main.storyboard */,
@@ -107,6 +114,16 @@
 				572EC99A1990ACD300340293 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		572EC9A51990B1AE00340293 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				572EC9A61990B1F200340293 /* ChallengeDataSource.swift */,
+				572EC9A81990B3F200340293 /* Challenge.swift */,
+				572EC9AA1990B44700340293 /* Time.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,7 +226,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				572EC98B1990ACD300340293 /* ViewController.swift in Sources */,
+				572EC9A91990B3F200340293 /* Challenge.swift in Sources */,
+				572EC9AB1990B44700340293 /* Time.swift in Sources */,
 				572EC9891990ACD300340293 /* AppDelegate.swift in Sources */,
+				572EC9A71990B1F200340293 /* ChallengeDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
