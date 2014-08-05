@@ -9,19 +9,33 @@
 import UIKit
 
 class TimerViewController: UIViewController {
+    enum TimerState {
+        case Stopped
+        case Running
+        case Finished
+    }
+    
 	var challenge: Challenge?
     
-    var timerRunning: Bool = false
+    var timerState: TimerState = .Stopped
     var timer: NSTimer?
     var timerStartDate: NSDate?
+    var dateFormatter: NSDateFormatter!
     
     @IBOutlet var timerLabel: UILabel!
     @IBOutlet var timerToggleButton: UIButton!
+    
+    
+    // MARK: - View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
 		challenge = Challenge(name: "Test")
+        
+        dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "mm:ss:S"
+        dateFormatter.timeZone = NSTimeZone(abbreviation: "UTC")
     }
 
 	override func viewWillAppear(animated: Bool) {
@@ -43,21 +57,32 @@ class TimerViewController: UIViewController {
 	// MARK: - Interface Actions
 
 	@IBAction func toggleTimer(sender: AnyObject) {
-        if (!timerRunning) {
+        switch timerState {
+        case .Stopped:
             timer = NSTimer.scheduledTimerWithTimeInterval(0.05, target: self,
                 selector: Selector("updateTimer"), userInfo: nil, repeats: true)
             timerStartDate = NSDate.date()
+            
             timerToggleButton.setTitle("Stop", forState: .Normal)
-        } else {
+            timerState = .Running
+            
+        case .Running:
             timer?.invalidate()
             timer = nil
-            timerToggleButton.setTitle("Start", forState: .Normal)
             
-            recordTime()
+            displaySaveDialog()
+            
+            timerToggleButton.setTitle("Clear", forState: .Normal)
+            timerState = .Finished
+            
+        case .Finished:
+            timerLabel.text = "00:00:0"
+            
+            timerToggleButton.setTitle("Start", forState: .Normal)
+            timerState = .Stopped
         }
-        
-        timerRunning = !timerRunning
 	}
+    
     
     // Mark: - Timer
     
@@ -65,19 +90,42 @@ class TimerViewController: UIViewController {
         let timeElapsed = NSDate.date().timeIntervalSinceDate(timerStartDate)
         let elapsedDate = NSDate(timeIntervalSince1970: timeElapsed)
         
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "mm:ss:S"
-        formatter.timeZone = NSTimeZone(abbreviation: "UTC")
-        
-        timerLabel.text = formatter.stringFromDate(elapsedDate)
+        timerLabel.text = dateFormatter.stringFromDate(elapsedDate)
     }
     
     func recordTime() {
-        let timeElapsed = NSDate.date().timeIntervalSinceDate(timerStartDate)
-        challenge?.addTime(timeElapsed)
     }
 
-
+    func displaySaveDialog() {
+        let alertController = UIAlertController(title: "Save Time",
+            message: "Please enter an optional coment", preferredStyle: .Alert)
+        
+        let saveAction = UIAlertAction(title: "Save", style: .Default) { (action: UIAlertAction!) in
+            let time = Time()
+            time.time = NSDate.date().timeIntervalSinceDate(self.timerStartDate)
+            
+            if let commentField = alertController.textFields[0] as? UITextField {
+                time.comment = commentField.text
+            }
+            
+            self.challenge?.addTime(time)
+        }
+        
+        let dismissAction = UIAlertAction(title: "Dismiss", style: .Cancel) { (action: UIAlertAction!) in
+            println("Dismiss")
+        }
+        
+        alertController.addAction(dismissAction)
+        alertController.addAction(saveAction)
+        
+        alertController.addTextFieldWithConfigurationHandler { (textField: UITextField!) in
+            textField.placeholder = "Comment"
+        }
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    
     /*
     // MARK: - Navigation
 

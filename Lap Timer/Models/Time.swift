@@ -9,11 +9,16 @@
 import UIKit
 
 class Time {
-    var time: NSTimeInterval
+    var time: NSTimeInterval!
 	var dateRecorded: NSDate
 	var comment: String?
     
-    init(time: NSTimeInterval, dateRecorded: NSDate) {
+    init() {
+        self.dateRecorded = NSDate.date()
+    }
+    
+    convenience init(time: NSTimeInterval, dateRecorded: NSDate) {
+        self.init()
         self.time = time
         self.dateRecorded = dateRecorded
     }
