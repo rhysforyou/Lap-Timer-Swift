@@ -44,9 +44,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="pRT-pr-K2g" kind="show" id="iol-Kw-46p"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -55,6 +52,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Challenges" id="Wkt-S5-L1P"/>
+                    <connections>
+                        <segue destination="pRT-pr-K2g" kind="show" identifier="showTimerView" id="3Fj-80-7Hq"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qd6-fp-6cm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

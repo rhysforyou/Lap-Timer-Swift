@@ -39,8 +39,6 @@ class TimerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-		challenge = Challenge(name: "Test")
         
         dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "mm:ss:S"

@@ -44,4 +44,19 @@ class ChallengesViewController: UITableViewController {
 
         return cell
     }
+    
+    // MARK: - Table View Delegate
+    
+    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        self.performSegueWithIdentifier("showTimerView", sender: self)
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        if segue.identifier == "showTimerView" {
+            let timerView = segue.destinationViewController as TimerViewController
+            timerView.challenge = challengeDataSource.challengeAtIndex(tableView.indexPathForSelectedRow().row)
+        }
+    }
 }
