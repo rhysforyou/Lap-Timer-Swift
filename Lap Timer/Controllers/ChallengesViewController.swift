@@ -59,4 +59,33 @@ class ChallengesViewController: UITableViewController {
             timerView.challenge = challengeDataSource.challengeAtIndex(tableView.indexPathForSelectedRow().row)
         }
     }
+    
+    // MARK: - Interface Actions
+    
+    @IBAction func createChallenge(sender: AnyObject) {
+        let alertController = UIAlertController(title: "New Challenge",
+            message: "Please enter a name for this challenge",
+            preferredStyle: .Alert)
+        
+        let createAction = UIAlertAction(title: "Create", style: .Default) { (action: UIAlertAction!) in
+            if let nameField = alertController.textFields[0] as? UITextField {
+                let challenge = Challenge(name: nameField.text)
+                self.challengeDataSource.addChallenge(challenge)
+                
+                let newRowIndexPath = NSIndexPath(forRow: self.challengeDataSource.numberOfChallenges() - 1, inSection: 0)
+                self.tableView.insertRowsAtIndexPaths([newRowIndexPath], withRowAnimation: .Automatic)
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, nil)
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(createAction)
+        
+        alertController.addTextFieldWithConfigurationHandler { (textField: UITextField!) in
+            textField.placeholder = "Name"
+        }
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
 }

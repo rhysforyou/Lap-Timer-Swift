@@ -51,7 +51,13 @@
                             <outlet property="delegate" destination="2lV-iC-5HB" id="CnS-hh-TCZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Challenges" id="Wkt-S5-L1P"/>
+                    <navigationItem key="navigationItem" title="Challenges" id="Wkt-S5-L1P">
+                        <barButtonItem key="rightBarButtonItem" title="New" id="huV-xA-7U3">
+                            <connections>
+                                <action selector="createChallenge:" destination="2lV-iC-5HB" id="QCS-XD-bhI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="pRT-pr-K2g" kind="show" identifier="showTimerView" id="3Fj-80-7Hq"/>
                     </connections>
