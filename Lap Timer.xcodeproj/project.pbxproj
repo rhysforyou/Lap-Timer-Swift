@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		572EC9891990ACD300340293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572EC9881990ACD300340293 /* AppDelegate.swift */; };
-		572EC98B1990ACD300340293 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572EC98A1990ACD300340293 /* ViewController.swift */; };
 		572EC98E1990ACD300340293 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 572EC98C1990ACD300340293 /* Main.storyboard */; };
 		572EC9901990ACD300340293 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 572EC98F1990ACD300340293 /* Images.xcassets */; };
 		572EC99C1990ACD300340293 /* Lap_TimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572EC99B1990ACD300340293 /* Lap_TimerTests.swift */; };
 		572EC9A71990B1F200340293 /* ChallengeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572EC9A61990B1F200340293 /* ChallengeDataSource.swift */; };
 		572EC9A91990B3F200340293 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572EC9A81990B3F200340293 /* Challenge.swift */; };
 		572EC9AB1990B44700340293 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572EC9AA1990B44700340293 /* Time.swift */; };
+		57B0E4BC1990C5B5004CC1F5 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B0E4BB1990C5B5004CC1F5 /* TimerViewController.swift */; };
+		57B0E4BE1990C7EA004CC1F5 /* ChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B0E4BD1990C7EA004CC1F5 /* ChallengesViewController.swift */; };
+		57B0E4C01990C7F2004CC1F5 /* TimesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B0E4BF1990C7F2004CC1F5 /* TimesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +33,6 @@
 		572EC9831990ACD300340293 /* Lap Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lap Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		572EC9871990ACD300340293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		572EC9881990ACD300340293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		572EC98A1990ACD300340293 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		572EC98D1990ACD300340293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		572EC98F1990ACD300340293 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		572EC9951990ACD300340293 /* Lap TimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lap TimerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +41,9 @@
 		572EC9A61990B1F200340293 /* ChallengeDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeDataSource.swift; sourceTree = "<group>"; };
 		572EC9A81990B3F200340293 /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		572EC9AA1990B44700340293 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		57B0E4BB1990C5B5004CC1F5 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		57B0E4BD1990C7EA004CC1F5 /* ChallengesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengesViewController.swift; sourceTree = "<group>"; };
+		57B0E4BF1990C7F2004CC1F5 /* TimesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				572EC9A51990B1AE00340293 /* Models */,
+				572EC9AC1990BAB800340293 /* Controllers */,
 				572EC9881990ACD300340293 /* AppDelegate.swift */,
-				572EC98A1990ACD300340293 /* ViewController.swift */,
 				572EC98C1990ACD300340293 /* Main.storyboard */,
 				572EC98F1990ACD300340293 /* Images.xcassets */,
 				572EC9861990ACD300340293 /* Supporting Files */,
@@ -124,6 +128,16 @@
 				572EC9AA1990B44700340293 /* Time.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		572EC9AC1990BAB800340293 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				57B0E4BB1990C5B5004CC1F5 /* TimerViewController.swift */,
+				57B0E4BD1990C7EA004CC1F5 /* ChallengesViewController.swift */,
+				57B0E4BF1990C7F2004CC1F5 /* TimesViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,10 +239,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				572EC98B1990ACD300340293 /* ViewController.swift in Sources */,
+				57B0E4BC1990C5B5004CC1F5 /* TimerViewController.swift in Sources */,
 				572EC9A91990B3F200340293 /* Challenge.swift in Sources */,
 				572EC9AB1990B44700340293 /* Time.swift in Sources */,
+				57B0E4C01990C7F2004CC1F5 /* TimesViewController.swift in Sources */,
 				572EC9891990ACD300340293 /* AppDelegate.swift in Sources */,
+				57B0E4BE1990C7EA004CC1F5 /* ChallengesViewController.swift in Sources */,
 				572EC9A71990B1F200340293 /* ChallengeDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +431,7 @@
 				572EC9A11990ACD300340293 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		572EC9A21990ACD300340293 /* Build configuration list for PBXNativeTarget "Lap TimerTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +440,7 @@
 				572EC9A41990ACD300340293 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

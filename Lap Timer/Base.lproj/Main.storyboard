@@ -20,10 +20,10 @@
             </objects>
             <point key="canvasLocation" x="336" y="286"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Challenges View Controller-->
         <scene sceneID="p1C-D1-rEV">
             <objects>
-                <tableViewController id="2lV-iC-5HB" sceneMemberID="viewController">
+                <tableViewController id="2lV-iC-5HB" customClass="ChallengesViewController" customModule="Lap_Timer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3fg-Ym-biq">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,7 +78,7 @@
         <!--Times-->
         <scene sceneID="M1X-9r-sed">
             <objects>
-                <tableViewController id="qwf-ip-t91" sceneMemberID="viewController">
+                <tableViewController id="qwf-ip-t91" customClass="TimesViewController" customModule="Lap_Timer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="QjU-Ef-o1Y">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -128,6 +128,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="k4K-RN-Wri"/>
+        <segue reference="iol-Kw-46p"/>
     </inferredMetricsTieBreakers>
 </document>
