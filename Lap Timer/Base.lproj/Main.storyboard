@@ -15,14 +15,14 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="pRT-pr-K2g" kind="relationship" relationship="rootViewController" id="k4K-RN-Wri"/>
+                        <segue destination="2lV-iC-5HB" kind="relationship" relationship="rootViewController" id="g3W-rX-toH"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wno-nP-Nh6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="336" y="286"/>
+            <point key="canvasLocation" x="-338" y="286"/>
         </scene>
-        <!--Challenges View Controller-->
+        <!--Challenges-->
         <scene sceneID="p1C-D1-rEV">
             <objects>
                 <tableViewController id="2lV-iC-5HB" customClass="ChallengesViewController" customModule="Lap_Timer" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,10 +31,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qaU-K6-o3u">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="2Qz-9L-3jD" style="IBUITableViewCellStyleDefault" id="qaU-K6-o3u">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qaU-K6-o3u" id="acp-Ba-bYf">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Qz-9L-3jD">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="pRT-pr-K2g" kind="show" id="iol-Kw-46p"/>
@@ -46,10 +54,11 @@
                             <outlet property="delegate" destination="2lV-iC-5HB" id="CnS-hh-TCZ"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Challenges" id="Wkt-S5-L1P"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qd6-fp-6cm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="336" y="986"/>
+            <point key="canvasLocation" x="384" y="286"/>
         </scene>
         <!--Timer View Controller-->
         <scene sceneID="jQ5-wE-clT">
@@ -258,7 +267,4 @@
             <point key="canvasLocation" x="1824" y="286"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="k4K-RN-Wri"/>
-    </inferredMetricsTieBreakers>
 </document>
