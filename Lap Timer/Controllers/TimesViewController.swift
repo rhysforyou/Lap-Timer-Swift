@@ -10,16 +10,21 @@ import UIKit
 
 class TimesViewController: UITableViewController {
     var challenge: Challenge!
-    var dateFormatter: NSDateFormatter!
+    var intervalDateFormatter: NSDateFormatter!
+    var timeDateFormatter: NSDateFormatter!
     
     // MARK: - View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "mm:ss:S"
-        dateFormatter.timeZone = NSTimeZone(abbreviation: "UTC")
+        intervalDateFormatter = NSDateFormatter()
+        intervalDateFormatter.dateFormat = "mm:ss:S"
+        intervalDateFormatter.timeZone = NSTimeZone(abbreviation: "UTC")
+        
+        timeDateFormatter = NSDateFormatter()
+        timeDateFormatter.dateStyle = .ShortStyle
+        timeDateFormatter.timeStyle = .ShortStyle
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,7 +51,7 @@ class TimesViewController: UITableViewController {
         
         let time = challenge.times[indexPath.row]
 
-        cell.textLabel.text = time.comment
+        cell.textLabel.text = "\(timeDateFormatter.stringFromDate(time.dateRecorded)) \(time.comment!)";
         cell.detailTextLabel.text = formatTimeInterval(time.time)
 
         return cell
@@ -57,6 +62,6 @@ class TimesViewController: UITableViewController {
     
     func formatTimeInterval(interval: NSTimeInterval) -> String {
         let intervalAsDate = NSDate(timeIntervalSince1970: interval)
-        return dateFormatter.stringFromDate(intervalAsDate)
+        return intervalDateFormatter.stringFromDate(intervalAsDate)
     }
 }
