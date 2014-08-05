@@ -39,8 +39,6 @@ class TimerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-		challenge = Challenge(name: "Test")
         
         dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "mm:ss:S"
@@ -127,7 +125,7 @@ class TimerViewController: UIViewController {
         currentTimeBar.progress = Float(currentTime / maxTime)
         
         if let bestTimeInterval = bestTime?.time {
-            bestTimeLabel.text = formatTimeInterval(bestTimeInterval)
+            bestTimeLabel.text = "\(bestTime!.comment!)   \(formatTimeInterval(bestTimeInterval))"
             bestTimeBar.progress = Float(bestTimeInterval / maxTime)
         } else {
             bestTimeLabel.text = formatTimeInterval(0.0)
@@ -135,7 +133,7 @@ class TimerViewController: UIViewController {
         }
         
         if let worstTimeInterval = worstTime?.time {
-            worstTimeLabel.text = formatTimeInterval(worstTimeInterval)
+            worstTimeLabel.text = "\(worstTime!.comment!)   \(formatTimeInterval(worstTimeInterval))"
             worstTimeBar.progress = Float(worstTimeInterval / maxTime)
         } else {
             worstTimeLabel.text = formatTimeInterval(0.0)
@@ -186,17 +184,16 @@ class TimerViewController: UIViewController {
         return dateFormatter.stringFromDate(intervalAsDate)
     }
     
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showTimes" {
+            let navigationController = segue.destinationViewController as UINavigationController
+            let timesViewController = navigationController.topViewController as TimesViewController
+            timesViewController.challenge = challenge
+        }
     }
-    */
 
-	@IBAction func unwindToTiemrViewController(segue: UIStoryboardSegue) {
-		
-	}
+	@IBAction func unwindToTiemrViewController(segue: UIStoryboardSegue) {}
 }

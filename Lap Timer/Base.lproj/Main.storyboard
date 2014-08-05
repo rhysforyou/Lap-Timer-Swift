@@ -15,30 +15,38 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="pRT-pr-K2g" kind="relationship" relationship="rootViewController" id="k4K-RN-Wri"/>
+                        <segue destination="2lV-iC-5HB" kind="relationship" relationship="rootViewController" id="g3W-rX-toH"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wno-nP-Nh6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="336" y="286"/>
+            <point key="canvasLocation" x="-338" y="286"/>
         </scene>
-        <!--Challenges View Controller-->
+        <!--Challenges-->
         <scene sceneID="p1C-D1-rEV">
             <objects>
                 <tableViewController id="2lV-iC-5HB" customClass="ChallengesViewController" customModule="Lap_Timer" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3fg-Ym-biq">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="3fg-Ym-biq">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.090196078430000007" green="0.058823529409999999" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.44313728810000003" green="0.38431376220000002" blue="0.43921571970000001" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.090196078431372548" green="0.058823529411764705" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qaU-K6-o3u">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="2Qz-9L-3jD" style="IBUITableViewCellStyleDefault" id="qaU-K6-o3u">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qaU-K6-o3u" id="acp-Ba-bYf">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Qz-9L-3jD">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.78823529410000004" green="0.69803921570000005" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="pRT-pr-K2g" kind="show" id="iol-Kw-46p"/>
-                                </connections>
+                                <color key="backgroundColor" red="0.270588249" green="0.18823531269999999" blue="0.26274511220000002" alpha="1" colorSpace="deviceRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -46,10 +54,20 @@
                             <outlet property="delegate" destination="2lV-iC-5HB" id="CnS-hh-TCZ"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Challenges" id="Wkt-S5-L1P">
+                        <barButtonItem key="rightBarButtonItem" title="New" id="huV-xA-7U3">
+                            <connections>
+                                <action selector="createChallenge:" destination="2lV-iC-5HB" id="QCS-XD-bhI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="pRT-pr-K2g" kind="show" identifier="showTimerView" id="3Fj-80-7Hq"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qd6-fp-6cm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="336" y="986"/>
+            <point key="canvasLocation" x="384" y="286"/>
         </scene>
         <!--Timer View Controller-->
         <scene sceneID="jQ5-wE-clT">
@@ -184,7 +202,7 @@
                     <navigationItem key="navigationItem" id="5md-mn-05L">
                         <barButtonItem key="rightBarButtonItem" title="Times" id="vqX-jp-NFx">
                             <connections>
-                                <segue destination="kOh-7q-3sH" kind="presentation" id="bC3-FD-sDU"/>
+                                <segue destination="kOh-7q-3sH" kind="presentation" identifier="showTimes" id="bC3-FD-sDU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -210,16 +228,32 @@
         <scene sceneID="M1X-9r-sed">
             <objects>
                 <tableViewController id="qwf-ip-t91" customClass="TimesViewController" customModule="Lap_Timer" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="QjU-Ef-o1Y">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="QjU-Ef-o1Y">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.090196078430000007" green="0.058823529409999999" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.44313728810000003" green="0.38431376220000002" blue="0.43921571970000001" alpha="1" colorSpace="deviceRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="RI6-Jh-v91">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="GOw-yp-kSk" detailTextLabel="CAW-ZG-F8G" style="IBUITableViewCellStyleValue1" id="RI6-Jh-v91">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RI6-Jh-v91" id="x7R-wr-g8r">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GOw-yp-kSk">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.78823529410000004" green="0.69803921570000005" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="00:00:0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CAW-ZG-F8G">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.78823529410000004" green="0.69803921570000005" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.270588249" green="0.18823531269999999" blue="0.26274511220000002" alpha="1" colorSpace="deviceRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -244,7 +278,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kOh-7q-3sH" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="i38-6K-hfx">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="i38-6K-hfx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -258,7 +293,4 @@
             <point key="canvasLocation" x="1824" y="286"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="k4K-RN-Wri"/>
-    </inferredMetricsTieBreakers>
 </document>
