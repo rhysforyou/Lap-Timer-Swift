@@ -21,9 +21,18 @@ class TimerViewController: UIViewController {
     var timer: NSTimer?
     var timerStartDate: NSDate?
     var dateFormatter: NSDateFormatter!
+    var currentTime: NSTimeInterval = 0.0
     
     @IBOutlet var timerLabel: UILabel!
     @IBOutlet var timerToggleButton: UIButton!
+    @IBOutlet var bestTimeBar: UIProgressView!
+    @IBOutlet var bestTimeLabel: UILabel!
+    @IBOutlet var worstTimeBar: UIProgressView!
+    @IBOutlet var worstTimeLabel: UILabel!
+    @IBOutlet var averageTimeBar: UIProgressView!
+    @IBOutlet var averageTimeLabel: UILabel!
+    @IBOutlet var currentTimeBar: UIProgressView!
+    @IBOutlet var currentTimeLabel: UILabel!
     
     
     // MARK: - View Lifecycle
@@ -60,7 +69,7 @@ class TimerViewController: UIViewController {
         switch timerState {
         case .Stopped:
             timer = NSTimer.scheduledTimerWithTimeInterval(0.05, target: self,
-                selector: Selector("updateTimer"), userInfo: nil, repeats: true)
+                selector: Selector("updateTimers"), userInfo: nil, repeats: true)
             timerStartDate = NSDate.date()
             
             timerToggleButton.setTitle("Stop", forState: .Normal)
@@ -76,24 +85,59 @@ class TimerViewController: UIViewController {
             timerState = .Finished
             
         case .Finished:
-            timerLabel.text = "00:00:0"
-            
+            currentTime = 0.0
             timerToggleButton.setTitle("Start", forState: .Normal)
             timerState = .Stopped
+            updateTimers()
         }
 	}
     
     
     // Mark: - Timer
     
-    func updateTimer() {
-        let timeElapsed = NSDate.date().timeIntervalSinceDate(timerStartDate)
-        let elapsedDate = NSDate(timeIntervalSince1970: timeElapsed)
+    func updateTimers() {
+        let bestTime = challenge?.bestTime()
+        let worstTime = challenge?.worstTime()
+        let averageTimeInterval = challenge?.averageTime()
         
-        timerLabel.text = dateFormatter.stringFromDate(elapsedDate)
-    }
+        if timerState == .Running {
+            currentTime = NSDate.date().timeIntervalSinceDate(timerStartDate)
+        }
+        
+        var maxTime: NSTimeInterval
+        
+        if timerState == .Running {
+            if let worstTimeInterval = worstTime?.time {
+                maxTime = max(worstTimeInterval, currentTime)
+            } else {
+                maxTime = currentTime
+            }
+        } else {
+            if let worstTimeInterval = worstTime?.time {
+                maxTime = worstTimeInterval
+            } else {
+                maxTime = 100.0
+            }
+        }
     
-    func recordTime() {
+        timerLabel.text = formatTimeInterval(currentTime)
+        currentTimeLabel.text = formatTimeInterval(currentTime)
+        currentTimeBar.progress = Float(currentTime / maxTime)
+        
+        if let bestTimeInterval = bestTime?.time {
+            bestTimeLabel.text = formatTimeInterval(bestTimeInterval)
+            bestTimeBar.progress = Float(bestTimeInterval / maxTime)
+        }
+        
+        if let worstTimeInterval = worstTime?.time {
+            worstTimeLabel.text = formatTimeInterval(worstTimeInterval)
+            worstTimeBar.progress = Float(worstTimeInterval / maxTime)
+        }
+        
+        if let average = averageTimeInterval {
+            averageTimeLabel.text = formatTimeInterval(average)
+            averageTimeBar.progress = Float(average / maxTime)
+        }
     }
 
     func displaySaveDialog() {
@@ -102,13 +146,14 @@ class TimerViewController: UIViewController {
         
         let saveAction = UIAlertAction(title: "Save", style: .Default) { (action: UIAlertAction!) in
             let time = Time()
-            time.time = NSDate.date().timeIntervalSinceDate(self.timerStartDate)
+            time.time = self.currentTime
             
             if let commentField = alertController.textFields[0] as? UITextField {
                 time.comment = commentField.text
             }
             
             self.challenge?.addTime(time)
+            self.updateTimers()
         }
         
         let dismissAction = UIAlertAction(title: "Dismiss", style: .Cancel) { (action: UIAlertAction!) in
@@ -125,6 +170,10 @@ class TimerViewController: UIViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
+    func formatTimeInterval(interval: NSTimeInterval) -> String {
+        let intervalAsDate = NSDate(timeIntervalSince1970: interval)
+        return dateFormatter.stringFromDate(intervalAsDate)
+    }
     
     /*
     // MARK: - Navigation
