@@ -15,4 +15,9 @@ class Challenge {
 	init(name: String) {
 		self.name = name
 	}
+    
+    func addTime(timeInterval: NSTimeInterval) {
+        let time = Time(time: timeInterval, dateRecorded: NSDate.date())
+        times.append(time)
+    }
 }

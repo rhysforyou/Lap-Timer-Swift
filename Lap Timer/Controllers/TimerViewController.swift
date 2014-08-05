@@ -52,6 +52,8 @@ class TimerViewController: UIViewController {
             timer?.invalidate()
             timer = nil
             timerToggleButton.setTitle("Start", forState: .Normal)
+            
+            recordTime()
         }
         
         timerRunning = !timerRunning
@@ -68,6 +70,11 @@ class TimerViewController: UIViewController {
         formatter.timeZone = NSTimeZone(abbreviation: "UTC")
         
         timerLabel.text = formatter.stringFromDate(elapsedDate)
+    }
+    
+    func recordTime() {
+        let timeElapsed = NSDate.date().timeIntervalSinceDate(timerStartDate)
+        challenge?.addTime(timeElapsed)
     }
 
 
