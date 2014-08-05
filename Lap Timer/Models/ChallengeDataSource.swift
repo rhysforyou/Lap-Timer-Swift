@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChallengeDataSource: NSObject, UITableViewDataSource {
+class ChallengeDataSource {
 	private var challenges: [Challenge] = []
 
 	func addChallenge(challenge: Challenge) {
@@ -21,17 +21,5 @@ class ChallengeDataSource: NSObject, UITableViewDataSource {
 
 	func numberOfChallenges() -> Int {
 		return challenges.count
-	}
-
-	// MARK: - TableView
-
-	func tableView(tableView: UITableView!,
-		cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell {
-			return UITableViewCell()
-	}
-
-	func tableView(tableView: UITableView!,
-		numberOfRowsInSection section: Int) -> Int {
-			return numberOfChallenges()
 	}
 }

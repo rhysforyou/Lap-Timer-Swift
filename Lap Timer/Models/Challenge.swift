@@ -8,7 +8,11 @@
 
 import UIKit
 
-class Challenge: NSObject {
+class Challenge {
 	var name = ""
 	var times: [Time] = []
+
+	init(name: String) {
+		self.name = name
+	}
 }
