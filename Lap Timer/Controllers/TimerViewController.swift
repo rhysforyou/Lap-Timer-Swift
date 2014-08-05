@@ -9,18 +9,55 @@
 import UIKit
 
 class TimerViewController: UIViewController {
+	var challenge: Challenge?
+    var timer: NSTimer?
+    var timerStartDate: NSDate?
+    
+    @IBOutlet var timerLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+		challenge = Challenge(name: "Test")
     }
+
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		if let c = challenge {
+			navigationItem.title = c.name
+		} else {
+			navigationItem.title = "Challenge"
+		}
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+
+	// MARK: - Interface Actions
+
+	@IBAction func startTimer(sender: AnyObject) {
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.05, target: self,
+            selector: Selector("updateTimer"), userInfo: nil, repeats: true)
+        timerStartDate = NSDate.date()
+	}
     
+    // Mark: - Timer
+    
+    func updateTimer() {
+        let timeElapsed = NSDate.date().timeIntervalSinceDate(timerStartDate)
+        let elapsedDate = NSDate(timeIntervalSince1970: timeElapsed)
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "mm:ss:S"
+        formatter.timeZone = NSTimeZone(abbreviation: "UTC")
+        
+        timerLabel.text = formatter.stringFromDate(elapsedDate)
+    }
+
 
     /*
     // MARK: - Navigation

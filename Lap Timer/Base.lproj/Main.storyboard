@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ffb-S3-DwS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="14A314h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ffb-S3-DwS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
+        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -60,7 +61,33 @@
                     <view key="view" contentMode="scaleToFill" id="QJ3-K8-srY">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="12:34:56" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ae-yW-UvE">
+                                <rect key="frame" x="159" y="104" width="281" height="85"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="72"/>
+                                <color key="textColor" red="0.78823529411764703" green="0.69803921568627447" blue="0.77647058823529413" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1P-L3-hZN">
+                                <rect key="frame" x="16" y="539" width="568" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startTimer:" destination="pRT-pr-K2g" eventType="touchUpInside" id="ebK-M6-cqV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.11764705882352941" green="0.078431372549019607" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="X1P-L3-hZN" firstAttribute="centerX" secondItem="wLa-IP-RPQ" secondAttribute="centerX" id="K3a-EL-5Yn"/>
+                            <constraint firstAttribute="centerX" secondItem="5ae-yW-UvE" secondAttribute="centerX" id="bVg-Zw-rBs"/>
+                            <constraint firstItem="5ae-yW-UvE" firstAttribute="top" secondItem="hxq-7X-0dR" secondAttribute="bottom" constant="40" id="g4A-E0-Yep"/>
+                            <constraint firstItem="X1P-L3-hZN" firstAttribute="trailing" secondItem="QJ3-K8-srY" secondAttribute="trailingMargin" id="lny-4Q-3El"/>
+                            <constraint firstAttribute="bottom" secondItem="X1P-L3-hZN" secondAttribute="bottom" constant="20" symbolic="YES" id="neJ-Zp-1hh"/>
+                            <constraint firstItem="X1P-L3-hZN" firstAttribute="leading" secondItem="QJ3-K8-srY" secondAttribute="leadingMargin" id="oXC-nc-PQs"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5md-mn-05L">
                         <barButtonItem key="rightBarButtonItem" title="Times" id="vqX-jp-NFx">
@@ -69,6 +96,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="timerLabel" destination="5ae-yW-UvE" id="lQm-YH-I2f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SwY-ud-ddq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="A1r-5L-KKM" userLabel="Exit" sceneMemberID="exit"/>
@@ -128,6 +158,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="iol-Kw-46p"/>
+        <segue reference="k4K-RN-Wri"/>
     </inferredMetricsTieBreakers>
 </document>
