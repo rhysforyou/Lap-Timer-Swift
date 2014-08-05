@@ -62,8 +62,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="12:34:56" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ae-yW-UvE">
-                                <rect key="frame" x="159" y="104" width="281" height="85"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ae-yW-UvE">
+                                <rect key="frame" x="179.5" y="104" width="240.5" height="82.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="72"/>
                                 <color key="textColor" red="0.78823529411764703" green="0.69803921568627447" blue="0.77647058823529413" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -75,7 +75,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="startTimer:" destination="pRT-pr-K2g" eventType="touchUpInside" id="ebK-M6-cqV"/>
+                                    <action selector="toggleTimer:" destination="pRT-pr-K2g" eventType="touchUpInside" id="8yd-zb-weM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -98,6 +98,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="timerLabel" destination="5ae-yW-UvE" id="lQm-YH-I2f"/>
+                        <outlet property="timerToggleButton" destination="X1P-L3-hZN" id="86t-9j-8NA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SwY-ud-ddq" userLabel="First Responder" sceneMemberID="firstResponder"/>

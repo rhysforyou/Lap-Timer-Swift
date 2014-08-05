@@ -10,10 +10,13 @@ import UIKit
 
 class TimerViewController: UIViewController {
 	var challenge: Challenge?
+    
+    var timerRunning: Bool = false
     var timer: NSTimer?
     var timerStartDate: NSDate?
     
     @IBOutlet var timerLabel: UILabel!
+    @IBOutlet var timerToggleButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,10 +42,19 @@ class TimerViewController: UIViewController {
 
 	// MARK: - Interface Actions
 
-	@IBAction func startTimer(sender: AnyObject) {
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.05, target: self,
-            selector: Selector("updateTimer"), userInfo: nil, repeats: true)
-        timerStartDate = NSDate.date()
+	@IBAction func toggleTimer(sender: AnyObject) {
+        if (!timerRunning) {
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.05, target: self,
+                selector: Selector("updateTimer"), userInfo: nil, repeats: true)
+            timerStartDate = NSDate.date()
+            timerToggleButton.setTitle("Stop", forState: .Normal)
+        } else {
+            timer?.invalidate()
+            timer = nil
+            timerToggleButton.setTitle("Start", forState: .Normal)
+        }
+        
+        timerRunning = !timerRunning
 	}
     
     // Mark: - Timer
