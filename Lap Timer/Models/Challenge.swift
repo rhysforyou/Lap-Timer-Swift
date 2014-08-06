@@ -8,13 +8,23 @@
 
 import UIKit
 
-class Challenge {
+class Challenge: NSObject, NSCoding {
 	var name = ""
 	var times: [Time] = []
 
 	init(name: String) {
 		self.name = name
 	}
+    
+    required init(coder aDecoder: NSCoder!) {
+        name = aDecoder.decodeObjectForKey("name") as String
+        times = aDecoder.decodeObjectForKey("times") as [Time]
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder!) {
+        aCoder.encodeObject(name, forKey: "name")
+        aCoder.encodeObject(times, forKey: "times")
+    }
     
     func addTime(time: Time) {
         times.append(time)
