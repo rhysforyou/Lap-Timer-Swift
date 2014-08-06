@@ -23,7 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         unarchiveDataSource()
         
-        challengesController.challengeDataSource = challengeDataSource
+        if let dataSource = challengeDataSource {
+            challengesController.challengeDataSource = dataSource
+        } else {
+            loadDefaultChallenges()
+            challengesController.challengeDataSource = challengeDataSource
+        }
         
 		return true
 	}
