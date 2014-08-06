@@ -11,16 +11,6 @@ import UIKit
 class ChallengesViewController: UITableViewController {
     var challengeDataSource: ChallengeDataSource!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        challengeDataSource = ChallengeDataSource()
-        challengeDataSource.addChallenge(Challenge(name: "Clap 20 Times"));
-        challengeDataSource.addChallenge(Challenge(name: "Say the Alphabet"));
-        challengeDataSource.addChallenge(Challenge(name: "100 Meter Sprint"));
-        challengeDataSource.addChallenge(Challenge(name: "Read the CSCI342 A1 Spec"));
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

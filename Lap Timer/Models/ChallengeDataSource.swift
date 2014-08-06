@@ -8,8 +8,20 @@
 
 import UIKit
 
-class ChallengeDataSource {
-	private var challenges: [Challenge] = []
+class ChallengeDataSource: NSObject, NSCoding {
+	private var challenges: [Challenge]
+    
+    override init() {
+        challenges = []
+    }
+    
+    required init(coder: NSCoder) {
+        challenges = coder.decodeObjectForKey("challenges") as [Challenge]
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder!) {
+        aCoder.encodeObject(challenges, forKey: "challenges")
+    }
 
 	func addChallenge(challenge: Challenge) {
 		challenges.append(challenge)
