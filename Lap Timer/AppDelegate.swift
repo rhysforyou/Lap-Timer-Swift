@@ -21,11 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = self.window?.rootViewController as UINavigationController
         let challengesController = navigationController.topViewController as ChallengesViewController
         
-        challengeDataSource = ChallengeDataSource()
-        challengeDataSource?.addChallenge(Challenge(name: "Clap 20 Times"));
-        challengeDataSource?.addChallenge(Challenge(name: "Say the Alphabet"));
-        challengeDataSource?.addChallenge(Challenge(name: "100 Meter Sprint"));
-        challengeDataSource?.addChallenge(Challenge(name: "Read the CSCI342 A1 Spec"));
+        unarchiveDataSource()
         
         challengesController.challengeDataSource = challengeDataSource
         
@@ -44,10 +40,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func unarchiveDataSource() {
+        challengeDataSource = NSKeyedUnarchiver.unarchiveObjectWithFile(archivePath()) as? ChallengeDataSource
+    }
+    
     func archivePath() -> String {
         let fileManager = NSFileManager.defaultManager()
         let archivePath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
         return "\(archivePath)/Challenges.archive"
+    }
+    
+    func loadDefaultChallenges() {
+        challengeDataSource = ChallengeDataSource()
+        challengeDataSource?.addChallenge(Challenge(name: "Clap 20 Times"));
+        challengeDataSource?.addChallenge(Challenge(name: "Say the Alphabet"));
+        challengeDataSource?.addChallenge(Challenge(name: "100 Meter Sprint"));
+        challengeDataSource?.addChallenge(Challenge(name: "Read the CSCI342 A1 Spec"));
     }
 }
 
