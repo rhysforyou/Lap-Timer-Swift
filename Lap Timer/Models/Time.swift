@@ -26,7 +26,7 @@ class Time: NSObject, NSCoding {
     func encodeWithCoder(aCoder: NSCoder!) {
         aCoder.encodeObject(time, forKey: "time")
         aCoder.encodeObject(dateRecorded, forKey: "dateRecorded")
-        aCoder.encodeObject(comment, forKey: "comment")
+        aCoder.encodeObject(comment!, forKey: "comment")
     }
     
     convenience init(time: NSTimeInterval, dateRecorded: NSDate) {
