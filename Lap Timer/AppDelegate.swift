@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func archiveDataSource() {
-        if NSKeyedArchiver.archiveRootObject(challengeDataSource, toFile: archivePath()) {
+        if NSKeyedArchiver.archiveRootObject(challengeDataSource!, toFile: archivePath()) {
             println("File saved")
         } else {
             println("Something went wrong")

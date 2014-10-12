@@ -16,12 +16,12 @@ class Challenge: NSObject, NSCoding {
 		self.name = name
 	}
     
-    required init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder) {
         name = aDecoder.decodeObjectForKey("name") as String
         times = aDecoder.decodeObjectForKey("times") as [Time]
     }
     
-    func encodeWithCoder(aCoder: NSCoder!) {
+    func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(name, forKey: "name")
         aCoder.encodeObject(times, forKey: "times")
     }

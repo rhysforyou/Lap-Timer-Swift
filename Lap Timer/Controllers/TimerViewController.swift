@@ -101,7 +101,7 @@ class TimerViewController: UIViewController {
         let averageTimeInterval = challenge?.averageTime()
         
         if timerState == .Running {
-            currentTime = NSDate.date().timeIntervalSinceDate(timerStartDate)
+            currentTime = NSDate.date().timeIntervalSinceDate(timerStartDate!)
         }
         
         var maxTime: NSTimeInterval
@@ -157,7 +157,7 @@ class TimerViewController: UIViewController {
             let time = Time()
             time.time = self.currentTime
             
-            if let commentField = alertController.textFields[0] as? UITextField {
+            if let commentField = alertController.textFields?.first as? UITextField {
                 time.comment = commentField.text
             }
             
@@ -187,7 +187,7 @@ class TimerViewController: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "showTimes" {
             let navigationController = segue.destinationViewController as UINavigationController
             let timesViewController = navigationController.topViewController as TimesViewController

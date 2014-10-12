@@ -18,35 +18,36 @@ class ChallengesViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return challengeDataSource.numberOfChallenges()
     }
 
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
 
         let challenge = challengeDataSource.challengeAtIndex(indexPath.row)
-        cell.textLabel.text = challenge.name
+        cell.textLabel?.text = challenge?.name
 
         return cell
     }
     
     // MARK: - Table View Delegate
     
-    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier("showTimerView", sender: self)
     }
     
     // MARK: - Navigation
     
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "showTimerView" {
-            let timerView = segue.destinationViewController as TimerViewController
-            timerView.challenge = challengeDataSource.challengeAtIndex(tableView.indexPathForSelectedRow().row)
+            if let timerView = segue.destinationViewController as? TimerViewController {
+                timerView.challenge = challengeDataSource.challengeAtIndex(tableView.indexPathForSelectedRow()?.row ?? 0)
+            }
         }
     }
     
@@ -58,7 +59,7 @@ class ChallengesViewController: UITableViewController {
             preferredStyle: .Alert)
         
         let createAction = UIAlertAction(title: "Create", style: .Default) { (action: UIAlertAction!) in
-            if let nameField = alertController.textFields[0] as? UITextField {
+            if let nameField = alertController.textFields?.first as? UITextField {
                 let challenge = Challenge(name: nameField.text)
                 self.challengeDataSource.addChallenge(challenge)
                 

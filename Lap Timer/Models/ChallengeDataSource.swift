@@ -19,7 +19,7 @@ class ChallengeDataSource: NSObject, NSCoding {
         challenges = coder.decodeObjectForKey("challenges") as [Challenge]
     }
     
-    func encodeWithCoder(aCoder: NSCoder!) {
+    func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(challenges, forKey: "challenges")
     }
 
@@ -27,8 +27,8 @@ class ChallengeDataSource: NSObject, NSCoding {
 		challenges.append(challenge)
 	}
 
-	func challengeAtIndex(index: Int) -> Challenge {
-		return challenges[index]
+	func challengeAtIndex(index: Int) -> Challenge? {
+        return challenges[index]
 	}
 
 	func numberOfChallenges() -> Int {
